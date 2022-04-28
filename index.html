@@ -2322,8 +2322,7 @@ display: inline-block;
            <div class="footer_meccend">
              <div class="footermeccend1"><a class="footermeccend" href="whatsapp://send?phone=79500957119" target="_blank">Whatsapp</a></div>
              <div class="footermeccend2"><a class="footermeccend" href="https://t.me/Dimanuga75" target="_blank">Telegram</a></div>
-            </div>
-       
+            </div>       
         </div>
       </footer> 
     </div>   
@@ -2334,12 +2333,12 @@ display: inline-block;
       crossorigin="anonymous"
     ></script>
     <script>
-      document.body.onload = function(){
+ document.body.onload = function(){
    setTimeout(function () {
-let preloader = document.getElementById ('preloud');
-if (!preloader.classList.contains('done'))
-{preloader.classList.add('done')}
-   }, 1000);
+    let preloader = document.getElementById ('preloud');
+   if (!preloader.classList.contains('done'))
+   {preloader.classList.add('done')}
+    }, 1000);
 }
 
 let btnmenu = document.querySelector('.header_burger')
@@ -2522,9 +2521,9 @@ SmoothScroll({
    touchpadSupport   : true,
 })
 //Автослайдинг    
-//function auto_play() {  $(".btnright").click();};
-//var timemode = 10000;
-//var autoPlay = setInterval( auto_play, timemode );
+function auto_play() {  $(".btnright").click();};
+var timemode = 10000;
+var autoPlay = setInterval( auto_play, timemode );
 $( document ).ready(function() {
 $('#portfolio div[data-elem-type="button"]').addClass("sldcontbtn");
  
@@ -2566,16 +2565,16 @@ $(".btnleft").click(function() {
     numsld = $(".btntab").index(this); sldelemhide();sldelemshow();
  });    
  
-//$(".butsld , .sldelem , .sldcontbtn ,.btntab").hover(
-//function(){  clearInterval(autoPlay);
-//},function(){  autoPlay = setInterval( auto_play, timemode );});   
-//});
-//document.addEventListener('DOMContentLoaded', function() {
-//    document.addEventListener('visibilitychange', function() {
-//        if (document.hidden) { clearInterval(autoPlay);
-//            } else { autoPlay = setInterval( auto_play, timemode );
-//            }
-//    });
+$(".butsld , .sldelem , .sldcontbtn ,.btntab").hover(
+function(){  clearInterval(autoPlay);
+},function(){  autoPlay = setInterval( auto_play, timemode );});   
+});
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) { clearInterval(autoPlay);
+            } else { autoPlay = setInterval( auto_play, timemode );
+            }
+   });
 });
 
 const smoothLinks = document.querySelectorAll('.nav-link');
