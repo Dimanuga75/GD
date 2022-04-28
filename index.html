@@ -2080,10 +2080,7 @@ display: inline-block;
             <div class="two">САЙТЫ ПОД КЛЮЧ</div>
           </h1>
           <img class="photo_back1" src="image/photo_back1.jpg" alt="PHOTO" />
-          <button
-            id="callback-button"
-            class="letter callback-button get-modal_1"
-          >
+          <button class="letter callback-button get-modal_1">
             НАПИСАТЬ СООБЩЕНИЕ</button
           ><span class="pulse_leter__rings"></span>
         </section>
@@ -2227,10 +2224,7 @@ display: inline-block;
           <a class="portfolio_btntab btntab" href="#btntab"><span></span></a>
         </div>
         <div class="portfolio_button_div">
-          <button
-            id="callback-button"
-            class="portfolio_button get-modal_1 callback-button"
-          >
+          <button class="portfolio_button get-modal_1 callback-button">
             СВЯЗАТЬСЯ С0 МНОЙ
           </button>
         </div>
@@ -2652,7 +2646,7 @@ for (let smoothLink of smoothLinks) {
  document.addEventListener('DOMContentLoaded', () => {  
  
    // Кнопка по которой происходит клик
-   let callBackButton = document.getElementById('callback-button');
+   let callBackButton = document.getElementsByClassName('callback-button');
   
    // Модальное окно, которое необходимо открыть
    let modal1 = document.getElementById('modal-1');
@@ -2690,13 +2684,10 @@ for (let smoothLink of smoothLinks) {
        e.preventDefault();
          modal1.classList.add('modal_active');
          tagBody.classList.add('hiden');
-    
-      
+     
      }
    }
  });
-
-
       </script>             
     <script src="js/script.js"></script>
   </body>
