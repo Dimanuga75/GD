@@ -2434,63 +2434,31 @@ $(window).scroll(function() {
 })
 
 $(window).scroll(function() {
-   if ($(this).scrollTop() > 350 && $(this).scrollTop() < 420) {
+   if ($(this).scrollTop() > 350 && $(this).scrollTop() < 1200) {
        $('.web').addClass("web_active1");
-   }  else if ($(this).scrollTop() > 420 && $(this).scrollTop() < 1200) {
-      $('.web').addClass("web_active2");
    } else {
-       $('.web').removeClass("web_active2");
-      $('.web').removeClass("web_active1");
+       $('.web').removeClass("web_active1");
    }
 })
 $(window).scroll(function() {
-   if ($(this).scrollTop() > 420 && $(this).scrollTop() < 490) {
+   if ($(this).scrollTop() > 400 && $(this).scrollTop() < 1200) {
        $('.web1').addClass("web1_active1");
-   }  else if ($(this).scrollTop() > 490 && $(this).scrollTop() < 1200) {
-      $('.web1').addClass("web1_active2");
-   } else {
-      $('.web1').removeClass("web1_active2");
+   }  else {
       $('.web1').removeClass("web1_active1");
    }
 })
 $(window).scroll(function() {
-   if ($(this).scrollTop() > 490 && $(this).scrollTop() < 560) {
+   if ($(this).scrollTop() > 450 && $(this).scrollTop() < 1200) {
        $('.web2').addClass("web1_active1");
-   }  else if ($(this).scrollTop() > 560 && $(this).scrollTop() < 1200) {
-      $('.web2').addClass("web1_active2");
-   } else {
-      $('.web2').removeClass("web1_active2");
+   }  else {
       $('.web2').removeClass("web1_active1");
    }
 })
 $(window).scroll(function() {
-   if ($(this).scrollTop() > 560 && $(this).scrollTop() < 630) {
+   if ($(this).scrollTop() > 500 && $(this).scrollTop() < 1200) {
        $('.web3').addClass("web1_active1");
-   }  else if ($(this).scrollTop() > 630 && $(this).scrollTop() < 1200) {
-      $('.web3').addClass("web1_active2");
-   } else {
-      $('.web3').removeClass("web1_active2");
+   }  else {
       $('.web3').removeClass("web1_active1");
-   }
-})
-$(window).scroll(function() {
-   if ($(this).scrollTop() > 630 && $(this).scrollTop() < 700) {
-       $('.web4').addClass("web1_active1");
-   }  else if ($(this).scrollTop() > 700 && $(this).scrollTop() < 1200) {
-      $('.web4').addClass("web1_active2");
-   } else {
-      $('.web4').removeClass("web1_active2");
-      $('.web4').removeClass("web1_active1");
-   }
-})
-$(window).scroll(function() {
-   if ($(this).scrollTop() > 770 && $(this).scrollTop() < 840) {
-       $('.web5').addClass("web1_active1");
-   }  else if ($(this).scrollTop() > 840 && $(this).scrollTop() < 2000) {
-      $('.web5').addClass("web1_active2");
-   } else {
-      $('.web5').removeClass("web1_active2");
-      $('.web5').removeClass("web1_active1");
    }
 })
   
