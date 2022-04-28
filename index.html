@@ -5,742 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;0,900;1,200;1,400;1,500;1,600;1,700;1,900&display=swap");
-      html {
-        font-size: 10px;
-        font-family: "Montserrat", sans-serif;
-      }
-
-      * {
-        padding: 0;
-        margin: 0;
-        border: 0;
-      }
-
-      /* Указываем box sizing */
-      *,
-      *::before,
-      *::after {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-
-      /* Убираем внутренние отступы */
-      ul[class],
-      ol[class] {
-        padding: 0;
-      }
-
-      /* Убираем внешние отступы */
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      p,
-      ul[class],
-      ol[class],
-      li,
-      figure,
-      figcaption,
-      blockquote,
-      dl,
-      dd {
-        margin: 0;
-      }
-
-      /* Выставляем основные настройки по-умолчанию для body */
-      body {
-        min-height: 100vh;
-        scroll-behavior: smooth;
-        text-rendering: optimizeSpeed;
-        line-height: 1.5;
-        background-color: #ffffff;
-        font-size: 16px;
-        height: 200rem;
-      }
-
-      /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
-      ul[class],
-      ol[class] {
-        list-style: none;
-      }
-
-      /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
-      a:not([class]) {
-        text-decoration-skip-ink: auto;
-      }
-
-      /* Упрощаем работу с изображениями */
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      /* Указываем понятную периодичность в потоке данных у article*/
-      article > * + * {
-        margin-top: 1em;
-      }
-
-      /* Наследуем шрифты для инпутов и кнопок */
-      input,
-      button,
-      textarea,
-      select {
-        font: inherit;
-      }
-
-      /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          -webkit-animation-duration: 0.01ms !important;
-          animation-duration: 0.01ms !important;
-          -webkit-animation-iteration-count: 1 !important;
-          animation-iteration-count: 1 !important;
-          -webkit-transition-duration: 0.01ms !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
-      }
-
-      .wrapper {
-        min-width: 100%;
-        overflow: hidden;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-
-      .content {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        position: relative;
-      }
-
-      .header_body {
-        display: none;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        max-width: 144rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        margin: 0 auto;
-        height: 7rem;
-        background-color: black;
-        position: fixed;
-        z-index: 100500;
-        -webkit-animation: wls;
-        animation: wls;
-        -webkit-animation-duration: 0.4s;
-        animation-duration: 0.4s;
-        width: 100%;
-      }
-
-      @-webkit-keyframes wls {
-        0% {
-          height: 0;
-        }
-        100% {
-          height: 70px;
-        }
-      }
-
-      @keyframes wls {
-        0% {
-          height: 0;
-        }
-        100% {
-          height: 70px;
-        }
-      }
-
-      ._logo {
-        width: 4rem;
-        height: 4rem;
-      }
-
-      .tel {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 2rem;
-      }
-
-      .header_burger {
-        display: block;
-        width: 39px;
-        height: 39px;
-        border-radius: 50px;
-        padding: 0;
-        cursor: pointer;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border: none;
-        margin-right: 1.5rem;
-      }
-
-      .header_burger img {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        width: 39px;
-        height: 39px;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-      }
-
-      .header_rightblock {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        width: 25rem;
-      }
-
-      ._close {
-        position: relative;
-        width: 2.3rem;
-        height: 2.3rem;
-        padding: 0;
-        border: none;
-        font: inherit;
-        color: inherit;
-        background-color: transparent;
-        cursor: pointer;
-        margin-left: 32rem;
-        margin-top: 2rem;
-      }
-
-      .close {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 23px;
-        height: 23px;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-      }
-
-      .header_menu {
-        position: fixed;
-        display: none;
-        margin-top: 50rem;
-        margin-left: calc(100% - 366px);
-        margin-right: 0;
-        width: 36.6rem;
-        height: 60rem;
-        background-color: #f7f7f7;
-        -webkit-animation: wlc;
-        animation: wlc;
-        -webkit-animation-duration: 0.6s;
-        animation-duration: 0.6s;
-        z-index: 100501;
-        -webkit-box-sizing: content-box;
-        box-sizing: content-box;
-      }
-
-      @-webkit-keyframes wlc {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @keyframes wlc {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      .nav {
-        list-style: none;
-        padding-left: 7rem;
-        margin-bottom: 2rem;
-      }
-
-      .nav-item {
-        margin-bottom: 1rem;
-      }
-
-      .nav-link {
-        text-decoration: none;
-        font-size: 3.6rem;
-        font-weight: 700;
-        color: black;
-      }
-
-      .menu_photo {
-        width: 25rem;
-        height: 40rem;
-        margin-left: 5.6rem;
-        margin-right: auto;
-        margin-top: -2.3rem;
-      }
-
-      .photo_back1 {
-        position: absolute;
-        z-index: 1;
-        margin-top: 1rem;
-        margin-left: 16rem;
-        width: 97rem;
-        height: 47.3rem;
-        opacity: 0.4;
-      }
-
-      h1 {
-        display: block;
-        position: absolute;
-        z-index: 2;
-        font-size: 7.4rem;
-        margin-left: 5.4rem;
-      }
-
-      .one {
-        width: 52rem;
-        margin-top: 15rem;
-        -webkit-transition-duration: 1s;
-        transition-duration: 1s;
-      }
-
-      .two {
-        width: 72rem;
-        margin-top: 0.8rem;
-      }
-
-      .activeH_right {
-        -webkit-transform: translate(200px, 0px);
-        transform: translate(200px, 0px);
-        -webkit-transition-duration: 1s;
-        transition-duration: 1s;
-      }
-
-      .letter {
-        position: -webkit-sticky;
-        position: sticky;
-        margin-top: 45rem;
-        margin-left: 10%;
-        border-radius: 50%;
-        width: 20rem;
-        height: 20rem;
-        color: #ffffff;
-        background-color: #000;
-        border: 1px solid black;
-        font-size: 1.9rem;
-        font-weight: 600;
-        z-index: 20;
-        -webkit-transition: 1s;
-        transition: 1s;
-        cursor: pointer;
-      }
-
-      .letter:hover {
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
-
-      .pulse_leter__rings {
-        border: 2rem solid #000;
-        position: absolute;
-        top: 45rem;
-        left: 10%;
-        bottom: 0;
-        right: 0;
-        height: 16rem;
-        width: 16rem;
-        border-radius: 50%;
-        -webkit-animation-duration: 5s;
-        animation-duration: 5s;
-        -webkit-animation-name: pulse_1;
-        animation-name: pulse_1;
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
-        z-index: 5;
-        background-color: transparent;
-      }
-
-      @-webkit-keyframes pulse_1 {
-        from {
-          opacity: 1;
-          -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-        }
-        to {
-          opacity: 0;
-          -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-        }
-      }
-
-      @keyframes pulse_1 {
-        from {
-          opacity: 1;
-          -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-        }
-        to {
-          opacity: 0;
-          -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-        }
-      }
-
-      .spisok {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-align: end;
-        -ms-flex-align: end;
-        align-items: flex-end;
-        float: right;
-        text-align: left;
-        margin-right: 9rem;
-        font-size: 3.8rem;
-        font-weight: 600;
-        margin-top: 14rem;
-        z-index: 9;
-      }
-
-      .spisok-item {
-        padding-bottom: 2.5rem;
-      }
-
-      .fon {
-        z-index: 8;
-        margin-top: -40rem;
-        overflow: hidden;
-        opacity: 0.03;
-        -webkit-transform: rotate(15deg);
-        transform: rotate(15deg);
-        height: 35rem;
-        width: 97%;
-        background-repeat: no-repeat;
-        float: left;
-        -o-object-fit: cover;
-        object-fit: cover;
-      }
-
-      .spisok-item1 {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: flex-start;
-        -webkit-transform: translate(0, 0) scale(0.8, 1);
-        transform: translate(0, 0) scale(0.8, 1);
-        opacity: 0;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        padding-bottom: 2.5rem;
-        width: 372px;
-      }
-
-      .web_active1 {
-        -webkit-transform: translate(0, 0) scale(0.9, 1);
-        transform: translate(0, 0) scale(0.9, 1);
-        opacity: 1;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-      }
-
-      .web_active2 {
-        -webkit-transform: translate(0, 0) scale(1, 1);
-        transform: translate(0, 0) scale(1, 1);
-        opacity: 1;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-      }
-
-      .spisok-item {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: flex-start;
-        -webkit-transform: translate(50px, 0) scale(0.8, 1);
-        transform: translate(50px, 0) scale(0.8, 1);
-        opacity: 0;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        width: 372px;
-      }
-
-      .web1_active1 {
-        -webkit-transform: translate(25px, 0) scale(0.9, 1);
-        transform: translate(25px, 0) scale(0.9, 1);
-        opacity: 1;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-      }
-
-      .web1_active2 {
-        -webkit-transform: translate(0, 0) scale(1, 1);
-        transform: translate(0, 0) scale(1, 1);
-        opacity: 1;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-      }
-
-      .ibg {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        width: 200rem;
-        float: left;
-        z-index: 46;
-      }
-
-      .ibg img {
-        width: 30rem;
-        height: 7rem;
-        margin-top: 10rem;
-        -webkit-animation: text 5s infinite linear;
-        animation: text 5s infinite linear;
-        white-space: nowrap;
-        padding-right: 7rem;
-      }
-
-      @-webkit-keyframes text {
-        0% {
-          -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-        }
-        100% {
-          -webkit-transform: translate(-160%, 0);
-          transform: translate(-160%, 0);
-        }
-      }
-
-      @keyframes text {
-        0% {
-          -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-        }
-        100% {
-          -webkit-transform: translate(-160%, 0);
-          transform: translate(-160%, 0);
-        }
-      }
-
-      .ibg1 {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        width: 200rem;
-        float: right;
-        z-index: 46;
-      }
-
-      .ibg1 img {
-        width: 30rem;
-        height: 7rem;
-        margin-top: 2rem;
-        -webkit-animation: text1 5s infinite linear;
-        animation: text1 5s infinite linear;
-        white-space: nowrap;
-        padding-right: 7rem;
-      }
-
-      @-webkit-keyframes text1 {
-        0% {
-          -webkit-transform: translate(50%, 0);
-          transform: translate(50%, 0);
-        }
-        100% {
-          -webkit-transform: translate(160%, 0);
-          transform: translate(160%, 0);
-        }
-      }
-
-      @keyframes text1 {
-        0% {
-          -webkit-transform: translate(50%, 0);
-          transform: translate(50%, 0);
-        }
-        100% {
-          -webkit-transform: translate(160%, 0);
-          transform: translate(160%, 0);
-        }
-      }
-
-      .text {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        overflow: hidden;
-        z-index: 48;
-        width: 100%;
-      }
-
-      .marquee {
-        font-size: 3rem;
-        line-height: 1.3;
-        font-family: sans-serif;
-        padding: 24px 0;
-        color: #c7c3c3;
-        white-space: nowrap;
-        -webkit-animation: marquee 25s infinite linear;
-        animation: marquee 25s infinite linear;
-        margin-top: 17rem;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        font-weight: 800;
-      }
-
-      .marquee:after {
-        content: " - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO";
-      }
-
-      @-webkit-keyframes marquee {
-        0% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-        }
-        100% {
-          -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-        }
-      }
-
-      @keyframes marquee {
-        0% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-        }
-        100% {
-          -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-        }
-      }
-
-      .marquee1 {
-        font-size: 3rem;
-        line-height: 1.3;
-        font-family: sans-serif;
-        padding: 24px 0;
-        color: #c7c3c3;
-        white-space: nowrap;
-        -webkit-animation: marquee1 25s infinite linear;
-        animation: marquee1 25s infinite linear;
-        margin-top: -1rem;
-        font-weight: 800;
-      }
-
-      .marquee1::after {
-        content: " - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO";
-      }
-
-      @-webkit-keyframes marquee1 {
-        0% {
-          -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-        }
-        100% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes marquee1 {
-        0% {
-          -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-        }
-        100% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-        }
-      }
-
-      .anima {
-        border: 12px dotted black;
-        opacity: 0.1;
-        height: 500px;
-        width: 500px;
-        border-radius: 50%;
-        background: transparent;
-        margin-top: 20px;
-        -webkit-animation-name: rotation;
-        -webkit-animation-duration: 50s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-        -moz-animation-name: rotation;
-        -moz-animation-duration: 50s;
-        -moz-animation-iteration-count: infinite;
-        -moz-animation-timing-function: linear;
-        -o-animation-name: rotation;
-        -o-animation-duration: 50s;
-        -o-animation-iteration-count: infinite;
-        -o-animation-timing-function: linear;
-        animation-name: rotation;
-        animation-duration: 50s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-      }
-
-      @-webkit-keyframes rotation {
-        0% {
-          -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes rotation {
-        0% {
-          -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-      /*# sourceMappingURL=style.css.map */
-    </style>
-
-    <title>Document</title>
+    <title>Document</title>   
   </head>
-  <body>
+  <body id="body">
+   <div id="preloud" class="preloader">
+      <div class="preloud__krug">
+        <span class="circule circule_1"></span>
+         <span class="circule circule_2"></span>
+        <span class="circule circule_3"></span>
+        <span class="circule circule_4"></span>
+        <span class="circule circule_5"></span>
+          <div class="preloud__krug_two">
+           <span class="circule circule_11"></span>
+           <span class="circule circule_21"></span>
+           <span class="circule circule_31"></span>
+           <span class="circule circule_41"></span>
+           <span class="circule circule_51"></span>
+          </div>
+      </div>
+     <div class="preloud__text">
+       <div class="preloud__text1">Секундочку</div>
+       <div class="preloud__text2">
+         <span class="circule circule_22"></span>
+         <span class="circule circule_23"></span>
+         <span class="circule circule_24"></span>
+       </div>
+     </div>
+  </div> 
     <div class="wrapper">
-      <header>
+      <header id="header">
         <div class="header">
           <div class="container">
             <div class="header_body">
@@ -755,18 +48,20 @@
                   <img src="image/menu.svg" alt="Menu" />
                 </button>
               </div>
+            </div>
+            <div class="header_menucont">
               <div class="header_menu">
-                <button class="_close">
-                  <img class="close" src="image/photo.png" alt="Close" />
+                <button class="header_close">
+                  <img class="_close" src="image/photo.png" alt="Close" />
                 </button>
                 <nav>
                   <ul class="nav">
                     <li class="nav-item"></li>
-                    <a class="nav-link" href="#">Главная </a>
+                    <a class="nav-link" href="#header">Главная </a>
                     <li class="nav-item"></li>
-                    <a class="nav-link" href="#">Портфолио </a>
+                    <a class="nav-link" href="#portfolio">Портфолио </a>
                     <li class="nav-item"></li>
-                    <a class="nav-link" href="#">Контакты</a>
+                    <a class="nav-link" href="#contact">Контакты</a>
                   </ul>
                 </nav>
                 <img class="menu_photo" src="image/ya_1.jpg" alt="My photo" />
@@ -774,15 +69,15 @@
             </div>
           </div>
         </div>
-      </header>
-      <div class="content">
+      </header>    
+      <div class="maincontent">
         <section class="section_main">
           <h1>
             <div class="one">WEB ДИЗАЙН</div>
             <div class="two">САЙТЫ ПОД КЛЮЧ</div>
           </h1>
           <img class="photo_back1" src="image/photo_back1.jpg" alt="PHOTO" />
-          <button class="letter">НАПИСАТЬ СООБЩЕНИЕ</button
+          <button id="callback-button" class="letter callback-button get-modal_1">НАПИСАТЬ СООБЩЕНИЕ</button
           ><span class="pulse_leter__rings"></span>
         </section>
         <div class="spisok">
@@ -794,26 +89,235 @@
           <div class="spisok-item web5">Дизайн в Figma</div>
         </div>
         <img class="fon" src="image/Background.png" alt="" />
-        <div class="text">
+        <div class="textanima">
           <p class="marquee">
             PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO -
             PORTFOLIO - PORTFOLIO
           </p>
         </div>
-        <div class="text">
+        <div class="textanima">
           <p class="marquee1">
             PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO - PORTFOLIO -
             PORTFOLIO - PORTFOLIO
           </p>
         </div>
-        <div class="anima"><span class="krug"> </span></div>
-      </div>
-      <footer>
-        <div class="footer">
-          <h2></h2>
+        <div id="portfolio" class="portfolio">
+           <div class="portfolio_container">
+              <div class="portfolio_left">
+               <div class="portfolio_btn">
+                <p>
+                  <a class="portfolio_btnleft btnleft butsld" href="#btnleft"
+                    ><img
+                      class="portfolio_btnright_left"
+                      src="/image/влево.png"
+                      alt="Left"
+                    />
+                  </a>
+                </p>
+                <p>
+                  <a class="portfolio_btnright btnright butsld" href="#btnright"
+                    ><img
+                      class="portfolio_btnright_right"
+                      src="/image/влево.png"
+                      alt="Right"
+                    />
+                  </a>
+                </p>
+               </div>         
+               <h4 class="portfolio_mimiutp1 sldtext1 sldelem">Дизайн -концепт</h4>
+               <h2 class="portfolio_utp">
+                 <p class="portfolio_utp_text sldtitle sldelem">
+                    Феникс - производитель оборудования.
+                  </p>                  
+               </h2>
+               <h3 class="portfolio_work sldtext sldelem">
+               Верстка, десктоп и мобильная версии
+               </h3>                                     
+              </div>
+              <div class="portfolio_anima">
+                 <div class="portfolio_picture">
+                  <img
+                  class="portfolio_picture_item1 sldpic sldelem"
+                  src="/image/фен_новый1.png"
+                  alt="picture"
+                  />             
+                 </div> 
+                 <div class="krug">
+                 </div>
+                 <div class="portfolio_counter">
+                    <h2 class="sldnumber sldelem">
+                     01
+                    </h2>
+                    <h2 class="sldnumber_text">/04</h2>
+                 </div>           
+              </div>
+           </div>
+           <div class="portfolio_container1">
+             <div class="portfolio_left">
+               <div class="portfolio_btn1">
+               </div>
+               <h4 class="portfolio_mimiutp sldtext1 sldelem">Дизайн -концепт</h4>
+               <h2 class="portfolio_utp">
+                 <p class="portfolio_utp_text sldtitle sldelem">
+                     Вкусные кухни. Квиз.
+                   </p>
+                 </p>
+               </h2>
+               <h3 class="portfolio_work sldtext sldelem">
+                  Верстка, десктоп и мобильная версии
+              </h3>
+             </div>
+             <div class="portfolio_picture1">
+               <img
+                   class="portfolio_picture_item2 sldpic sldelem"
+                   src="/image/кух_новый1.png"
+                   alt="picture"
+                />
+             </div>
+           </div>
+           <div class="portfolio_container1">
+             <div class="portfolio_left">
+               <div class="portfolio_btn1">
+               </div>              
+               <h4 class="portfolio_mimiutp sldtext1 sldelem">Дизайн -концепт</h4>
+               <h2 class="portfolio_utp">
+                 <p class="portfolio_utp_text sldtitle sldelem" >
+                     LenaMccoder. Branding agency.
+                   </p>
+                 </p>
+               </h2>
+               <h3 class="portfolio_work sldtext sldelem">
+                  Верстка, десктоп и мобильная версии
+              </h3>
+             </div>
+             <div class="portfolio_picture1">
+                <img
+                   class="portfolio_picture_item sldpic sldelem"
+                   src="image/лист_новый1.png"
+                   alt="picture"
+                 />
+             </div>
+           </div> 
+           <div class="portfolio_container1">
+             <div class="portfolio_left">
+               <div class="portfolio_btn1">
+               </div>
+               <h4 class="portfolio_mimiutp sldtext1 sldelem">Дизайн -концепт</h4>
+               <h2 class="portfolio_utp">
+                 <p class="portfolio_utp_text sldtitle sldelem">
+                     Петр Кан. Независимый финансовый консультант.
+                 </p>
+               </h2>
+                <h3 class="portfolio_work sldtext sldelem">
+                   Верстка, десктоп и мобильная версии
+               </h3>
+             </div>
+             <div class="portfolio_picture1">
+                 <img
+                   class="portfolio_picture_item sldpic sldelem"
+                   src="/image/кан_новый1.png"
+                   alt="picture"
+                 />
+             </div>
+           </div>          
         </div>
-      </footer>
-    </div>
+        <div class="portfolio_btntabdiv">
+         <a class="portfolio_btntab btntab" href="#btntab"><span></span></a>
+         <a class="portfolio_btntab btntab" href="#btntab"><span></span></a>
+         <a class="portfolio_btntab btntab" href="#btntab"><span></span></a>
+         <a class="portfolio_btntab btntab" href="#btntab"><span></span></a>
+        </div>  
+        <div class="portfolio_button_div"> <button id="callback-button" class="portfolio_button get-modal_1 callback-button">СВЯЗАТЬСЯ С0 МНОЙ</button></div> 
+      </div>          
+      <div class="textanima" >
+         <p class="marquee2" style="font-size: 42px;">
+           about me - about me - about me - about me - about me -
+          about me - about me
+         </p>
+      </div>
+      <div class="textanima">
+         <p class="marquee21" style="font-size: 42px; margin-top: -20px;">
+            about me - about me - about me - about me - about me -
+           about me - about me
+         </p>
+      </div>
+      <div id="aboutme" class="aboutme">
+           <div class="aboutme_text">
+              <h4 class="aboutmetext"> Меня зовут Дмитрий, я веб-дизайнер и разработчик сайтов. </h4>
+              <h4 class="aboutmetext">Создам для вас продуманный и
+               продающий сайт с высокой конверсией посетителей в ваших клиентов.</h4>
+              <h4 class="aboutmetext">Подключу к вашему сайту сервисы оплаты, аналитики и СRM.</h4>
+              <h4 class="aboutmetext">Со мной легко и приятно иметь дело, т.к. работу выполняю в оговоренные сроки и качественно.</h4>
+           </div>
+           <div class="aboutme_photo">
+              <img class="aboutmephoto" src="/image/пиджак-сайт3.png" alt="Myphoto">
+           </div>
+      </div>
+      <div id="modal-1" class="modal-1">
+         <div class="modal_content">
+            <div class="form_content"><img class="form_foto" src="/image/пиджак-сайт.png" alt=""></div>
+            <div class="form">
+               <form action="#" class="contact-form" id="contact-form_1" method="POST" enctype="multipart/form-data">
+                  <p class="contact-form__title">ЗАПОЛНИТЕ КОНТАКТНУЮ ФОРМУ, ЧТОБЫ
+                     ПЕРЕЙТИ К ОБСУЖДЕНИЮ ВАШЕГО ПРОЕКТА</p>
+                  <!--<p class="contact-form__description"></p>-->
+                  <div class="contact-form__input-wrapper"> 
+                    <label for="Forname" class="form_label">Имя*</label>
+                    <input id ="Forname" type="text" name="name"  class="contact-form__input contact-form__input_name" placeholder="  Введите ваше имя">
+                    <div class="contact-form__error contact-form__error_name"></div>
+                  </div>
+                  <div class="contact-form__input-wrapper">
+                     <label for="Forphone" class="form_label">Ваш телефон*</label>
+                    <input  id ="Forphone" name="tel" type="tel" class="contact-form__input contact-form__input_tel" placeholder="  Введите ваш телефон">
+                    <div class="contact-form__error contact-form__error_tel"></div>
+                  </div>
+                 <div class="contact-form__input-wrapper"> 
+                     <label for="Formail" class="form_label">Ваша почта</label>
+                     <input id ="Formail" name="email" type="email" class="contact-form__input contact-form__input_email" placeholder="  Введите ваш email">
+                     <div class="contact-form__error contact-form__error_email"></div>
+                  </div>
+                  <div class="contact-form__input-wrapper"> 
+                     <label for="Formessedge" class="form_label">Расскажите о вашем проекте</label>
+                     <textarea id ="Formessedge" name="messedge" type="text" class="contact-form__input contact-form__input_messedge" placeholder="  Введите ваше сообщение"></textarea>
+                  </div>
+                 
+                  <button class="contact-form__button" type="submit"> ОТПРАВИТЬ </button>
+                </form>
+            </div>
+            <button id="modal__close-button" class="closed"><span class="modal__close-button close2">&times</span></button>
+            
+         </div>
+      </div>    
+      <footer id="contact">
+        <div class="footer">
+           <div class="footer_text">
+              <div class="foottertext">
+               Я всегда на связи
+              </div>
+              <div class="foottertext">
+               и открыт к сотрудничеству
+              </div>
+              <div class="foottertext">
+               с новыми проектами
+              </div>
+           </div>
+           <div class="footer_contact">
+             <div><a class="footercontact" href="tel:79500957119">+7 950 095 7119</a></div>
+             <div class="footermail">
+               grig1975@mail.ru
+             </div>
+             <div class="footertext">
+               Иркутск, Россия
+             </div>
+           </div>
+           <div class="footer_meccend">
+             <div class="footermeccend1"><a class="footermeccend" href="whatsapp://send?phone=79500957119" target="_blank">Whatsapp</a></div>
+             <div class="footermeccend2"><a class="footermeccend" href="https://t.me/Dimanuga75" target="_blank">Telegram</a></div>
+            </div>
+       
+        </div>
+      </footer> 
+    </div>   
     <script src="js/jquery.mini3-6-0.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"
